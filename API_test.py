@@ -13,6 +13,18 @@ data = response.text
 data = json.loads(data)
 
 # 印出解析後的資料
-print(data)
+#print(data)
 
+med_count = {}
+
+# 填入欄位名稱
+for d in data['features']:
+    county = d['properties']['county']
+    if county not in med_count:
+         med_count[county] = 0
+    med_count[county] += 1
+
+
+print(med_count)
+# {'台北市': 123, '新北市': 456 ...}
 
